@@ -8,8 +8,9 @@ console.log(swaggerDoc);
 
 
 const router: any = express.Router()
-router.get('/',swaggerUI.setup(swaggerDoc))
+
 router.use('/',swaggerUI.serve)
+router.get('/',swaggerUI.setup(swaggerDoc))
 
 
 export default router;
