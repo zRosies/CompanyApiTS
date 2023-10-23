@@ -7,10 +7,10 @@
     },
   
     "paths": {
-      "/employees": {
+      "/employee": {
        
         "get": {
-          "summary": "Get all employees",
+          "summary": "Get all employee",
           "tags":["Employees"],
           "responses": {
             "200": {
@@ -50,7 +50,7 @@
           }
         }
       },
-      "/employees/{id}": {
+      "/employee/{id}": {
         "get": {
           "summary": "Get employee by Id",
           "tags": ["Employees"],
@@ -139,7 +139,7 @@
         
       }
       },
-      "/users": {
+      "/user": {
         "get": {
           "summary": "Get all users",
           "tags": ["Users"],
