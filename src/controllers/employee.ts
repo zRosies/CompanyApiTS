@@ -5,7 +5,6 @@ import { getDb } from '../connection/dbConnect';
 
 // Execute dotenv.config() as a function
 
-const apiKey: string  = process.env.APIKEY || '';
 
 export const getAllEmployees = async (req: Request, res: Response) => {
     try {

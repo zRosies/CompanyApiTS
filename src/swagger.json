@@ -143,16 +143,6 @@
         "get": {
           "summary": "Get all users",
           "tags": ["Users"],
-          "parameters": [
-            {
-              "name": "apiKey",
-              "in": "header",
-              "description": "API Key: SDS324FGF",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
           "responses": {
             "200": {
               "description": "Successful response",
@@ -172,16 +162,6 @@
           "summary": "Create a new user",
           
           "tags": ["Users"],
-          "parameters": [
-            {
-              "name": "apiKey",
-              "in": "header",
-              "description": "API Key: SDS324FGF",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
           "requestBody": {
             "required": true,
             "content": {
