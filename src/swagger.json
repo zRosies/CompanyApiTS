@@ -182,7 +182,7 @@
           }
         }
       },     
-      "/users/{id}": {
+      "/user/{id}": {
         "get": {
           "summary": "Get users by id",
           "tags": ["Users"],
