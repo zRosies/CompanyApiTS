@@ -5,11 +5,14 @@ import dotenv from "dotenv";
 import {getDb, initDb} from "./connection/dbConnect"
 import cors from "cors";
 import routes from './routes/index'
+import { Request, Response } from 'express';
+import path  from 'path';
 dotenv.config()
 
 const app = express();
 
 const PORT: any = process.env.PORT || 8080
+
 
 app.use(bodyParser.json())
     .use(cors({origin : "*"}))
@@ -18,6 +21,8 @@ app.use(bodyParser.json())
         next()
     })
     .use('/', routes)
+    .use(express.static(path.join(__dirname, 'front')))
+
 
 
 initDb((err: Error | null) => {

@@ -33,30 +33,33 @@ const callback = async ({ query: { code } }: { query: { code: any } }, res: Resp
     const response = await axios.post('https://github.com/login/oauth/access_token', body, opts);
     const token = response.data.access_token;
 
-    // Generate a custom token for your application, e.g., JWT
-
-    // const customToken = generateCustomToken({ user: 'your-username' }); // Replace with your token generation logic
-
-    // Set the custom token as a cookie with a 1-hour expiration
     const tokenCookie = cookie.serialize('git_token', token, {
       httpOnly: true,
       maxAge: 5 * 60 * 1000, // 5min
       sameSite: 'lax',
     });
 
-    // Add the cookie to the response headers
+  
     res.setHeader('Set-Cookie', tokenCookie);
 
-    // Redirect the user to a different route or respond as needed
+
     
-    
-    res.redirect('/') // Replace with your desired route
+    //redirecting to the account page
+    res.redirect('/account') 
   } catch (err) {
     res.status(500).json({ err: err});
   }
 };
 
+
+const logout = (req:Request, res:Response)=>{
+  res.clearCookie('git_token')
+  res.redirect('/')
+
+}
+
 oauth.get('/oauth', redirect);
 oauth.get('/oauth-callback', callback);
+oauth.get('/logout', logout)
 
 export default oauth;

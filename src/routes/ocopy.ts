@@ -48,7 +48,7 @@ const callback = async ({ query: { code } }: { query: { code: any } }, res: Resp
     res.setHeader('Set-Cookie', tokenCookie);
 
     // Redirect the user to a different route or respond as needed
-    res.redirect('/'); // Replace with your desired route
+    res.redirect('/account'); // Replace with your desired route
   } catch (err) {
     res.status(500).json({ err: err});
   }
