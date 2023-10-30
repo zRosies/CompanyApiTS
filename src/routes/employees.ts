@@ -3,6 +3,7 @@ import { getAllEmployees, getEmployeeById, createNewEmployee, deleteEmployee, up
 import { validate, validateEmployee } from "../validation/validationRules";
 
 
+
 const router: any = express.Router();
 
 router.get('/', getAllEmployees)

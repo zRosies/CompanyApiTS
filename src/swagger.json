@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.0",
+    "swagger": "2.0",
     "info": {
       "title": "Company API",
       "version": "1.0.0",
@@ -12,6 +12,7 @@
         "get": {
           "summary": "Get all employee",
           "tags":["Employees"],
+          
           "responses": {
             "200": {
               "description": "Successful response",
@@ -30,6 +31,11 @@
         "post": {
           "summary": "Create a new employee",
           "tags": ["Employees"],
+          "security": [
+            {
+              
+            }
+          ],
           "requestBody": {
             "required": true,
             "content": {
@@ -54,6 +60,11 @@
         "get": {
           "summary": "Get employee by Id",
           "tags": ["Employees"],
+          "security": [
+            {
+              "oAuth2Implicit": []
+            }
+          ],
           "parameters": [
             {
               "name": "id",
@@ -83,6 +94,11 @@
         "put": {
           "summary": "Updated an employee by Id",
           "tags": ["Employees"],
+          "security": [
+            {
+              
+            }
+          ],
           "parameters": [
             {
               "name": "id",
@@ -117,6 +133,11 @@
         "delete": {
           "summary": "Delete an employee by Id",
           "tags": ["Employees"],
+          "security": [
+            {
+              
+            }
+          ],
           "parameters": [
             {
               "name": "id",
@@ -172,6 +193,11 @@
               }
             }
           },
+          "security": [
+            {
+              
+            }
+          ],
           "responses": {
             "201": {
               "description": "User created successfully"
@@ -186,6 +212,11 @@
         "get": {
           "summary": "Get users by id",
           "tags": ["Users"],
+          "security": [
+            {
+              "OAuth2": ["read"]
+            }
+          ],
           "parameters": [
             {
               "name": "id",
@@ -218,6 +249,11 @@
         "put": {
           "summary": "Update an user by Id",
           "tags": ["Users"],
+          "security": [
+            {
+              
+            }
+          ],
           "parameters": [
             {
               "name": "id",
@@ -252,6 +288,11 @@
         "delete": {
           "summary": "Delete an user by Id",
           "tags": ["Users"],
+          "security": [
+            {
+              
+            }
+          ],
           "parameters": [
             {
               "name": "id",
@@ -320,8 +361,22 @@
           "required":["userName","password"]
         
         }
+      
+    }
+  },
+  "securityDefinitions": {
+    "oAuth2Implicit": {
+      "type": "oauth2",
+      "authorizationUrl": "/oauth",
+       "password":{
+        "tokenUrl": "https://github.com/login/oauth/access_token"
+       }, 
+         
+      "scopes": {
+        "read": "Read",
+        "write": "write"
       }
     }
-        
-  
   }
+}        
+  

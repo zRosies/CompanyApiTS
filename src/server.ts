@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import {getDb, initDb} from "./connection/dbConnect"
 import cors from "cors";
 import routes from './routes/index'
-
 dotenv.config()
 
 const app = express();
