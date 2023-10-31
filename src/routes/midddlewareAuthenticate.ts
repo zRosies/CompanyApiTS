@@ -25,6 +25,6 @@ export const authenticate = (req: CustomRequest, res: Response, next: NextFuncti
     // User is not authenticated, send a 401 Unauthorized response or redirect to a login page
     res
       .status(401)
-      .send("Unauthorized! You have no token to perform this operation");
+      .send("Unauthorized! You have no token to perform this operation!");
   }
 };

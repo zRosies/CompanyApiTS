@@ -78,3 +78,7 @@ main{
 .painel p{
     margin: 5px;
 }
+
+#denied{
+    color: #fc0000;
+}

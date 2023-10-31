@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import employees from "./employees"
 import user from './user'
 import swagger from './swagger'
@@ -19,10 +19,24 @@ router.get('/', (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, '../front/index.html'));
   });
 
-router.get('/account', (req: Request, res: Response) => {
 
+router.get('/account', (req: Request, res: Response, next: NextFunction) => {
     res.sendFile(path.join(__dirname, '../front/logged.html'));
   });
+
+router.get('/denied', (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, '../front/denied.html'));
+  
+    setTimeout(()=>{
+      console.log('aaa');
+      
+    }, 3000)
+    
+     
+   
+  });
+
+
 
 // router.use('oAuth',)
 

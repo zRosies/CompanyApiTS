@@ -15,7 +15,6 @@ const PORT: any = process.env.PORT || 8080
 
 
 app.use(bodyParser.json())
-    .set('baseUrl', 'https://companyapits.onrender.com')
     .use(cors({origin : "*"}))
     .use((req,res,next)=>{
         res.setHeader('Access-Control-Origin', "*")
