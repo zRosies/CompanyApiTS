@@ -6,15 +6,6 @@ import jwt from 'jsonwebtoken';
 
 const oauth: any = express.Router();
 
-// Secret key for signing the JWT (keep this secret)
-const jwtSecret = 'your-secret-key';
-
-function generateCustomToken(userData:any) {
-  const token = jwt.sign(userData, jwtSecret, {
-    expiresIn: '1h', // Token expires in 1 hour
-  });
-  return token;
-}
 
 const redirect = (req: Request, res: Response) => {
   res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`);
@@ -42,9 +33,8 @@ const callback = async ({ query: { code } }: { query: { code: any } }, res: Resp
   
     res.setHeader('Set-Cookie', tokenCookie);
 
-    const baseUrl = res.app.get('baseUrl');
-    const accountUrl = `${baseUrl}/account`;
-    console.log(accountUrl);
+
+    const accountUrl = `/account`;
     
     //redirecting to the account page
     res.redirect(accountUrl) 
