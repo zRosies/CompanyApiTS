@@ -42,10 +42,12 @@ const callback = async ({ query: { code } }: { query: { code: any } }, res: Resp
   
     res.setHeader('Set-Cookie', tokenCookie);
 
-
+    const baseUrl = res.app.get('baseUrl');
+    const accountUrl = `${baseUrl}/account`;
+    console.log(accountUrl);
     
     //redirecting to the account page
-    res.redirect('/account') 
+    res.redirect(accountUrl) 
   } catch (err) {
     res.status(500).json({ err: err});
   }
