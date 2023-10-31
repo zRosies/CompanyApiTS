@@ -13,11 +13,18 @@ export const authenticate = (req: CustomRequest, res: Response, next: NextFuncti
   const cookies = cookie.parse(req.headers?.cookie || ''); // Parse cookies from the request
   const customToken = cookies.git_token; // Assuming the token is passed as a cookie
 
+  
   if (customToken) {
+    if (customToken === "null" || customToken == "undefined") {
+      res.json(`Your token is: ${customToken}! Validade your access before continuing`);
+    } else {
+      next();
+    }
     // User is authenticated, proceed to the next middleware/route handler
-    next();
   } else {
     // User is not authenticated, send a 401 Unauthorized response or redirect to a login page
-    res.status(401).send('Unauthorized! You have no token to perform this operation');
+    res
+      .status(401)
+      .send("Unauthorized! You have no token to perform this operation");
   }
 };

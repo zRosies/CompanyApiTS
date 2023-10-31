@@ -62,7 +62,7 @@
           "tags": ["Employees"],
           "security": [
             {
-              "OAuth2AuthorizationCode": []
+              "OAuth2": ["write"]
             }
           ],
           "parameters": [
@@ -96,7 +96,7 @@
           "tags": ["Employees"],
           "security": [
             {
-              "OAuth2AuthorizationCode": []
+              "OAuth2": ["write"]
             }
           ],
           "parameters": [
@@ -135,7 +135,7 @@
           "tags": ["Employees"],
           "security": [
             {
-              "OAuth2AuthorizationCode": []
+              "OAuth2": ["write"]
             }
           ],
           "parameters": [
@@ -195,7 +195,7 @@
           },
           "security": [
             {
-              "OAuth2AuthorizationCode": []
+              "OAuth2": ["write"]
             }
           ],
           "responses": {
@@ -251,7 +251,7 @@
           "tags": ["Users"],
           "security": [
             {
-              "OAuth2AuthorizationCode": []
+              "OAuth2": ["write"]
             }
           ],
           "parameters": [
@@ -290,7 +290,7 @@
           "tags": ["Users"],
           "security": [
             {
-              "OAuth2AuthorizationCode": []
+              "OAuth2": ["write"]
             }
           ],
           "parameters": [
@@ -365,16 +365,18 @@
     }
   },
   "securityDefinitions": {
-    "oAuth2Implicit": {
+    "OAuth2AuthorizationCode": {
       "type": "oauth2",
-      "authorizationUrl": "https://github.com/login/oauth/authorize",
-       "password":{
-        "tokenUrl": "https://github.com/login/oauth/access_token"
-       }, 
-         
-      "scopes": {
-        "read": "Read",
-        "user": "Read"
+      "description": "OAuth 2.0 Authorization Code flow",
+      "flows": {
+        "authorizationCode": {
+          "authorizationUrl": "https://github.com/login/oauth/authorize",
+          "tokenUrl": "https://github.com/login/oauth/access_token",
+          "scopes": {
+            "read:user": "Read user data",
+            "user:email": "Read user email"
+          }
+        }
       }
     }
   }

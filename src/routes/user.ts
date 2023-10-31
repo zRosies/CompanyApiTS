@@ -6,8 +6,8 @@ import { authenticate } from './midddlewareAuthenticate';
 
 const router: any = express.Router();
 
-router.get('/', authenticate, getAllUsers)
-router.get('/:id', authenticate, getUserById)
+router.get('/', getAllUsers)
+router.get('/:id',  getUserById)
 router.delete('/:id', authenticate, deleteUser)
 router.post('/', validateUser(),validate, authenticate, createNewUser)
 router.put('/:id',validateUser(),validate, authenticate, updateUser)
