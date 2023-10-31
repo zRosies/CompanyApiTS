@@ -15,10 +15,14 @@ router.use('/user', user)
 router.use('/api-docs', swagger)
 router.use('/', oauth)
 router.get('/', (req: Request, res: Response) => {
+    const baseUrl = req.app.get('baseUrl');
+    const indexUrl = `${baseUrl}/index.html`;
     res.sendFile(path.join(__dirname, '../front/index.html'));
   });
 
 router.get('/account', (req: Request, res: Response) => {
+    const baseUrl = req.app.get('baseUrl');
+    const loggedUrl = `${baseUrl}/logged.html`;
     res.sendFile(path.join(__dirname, '../front/logged.html'));
   });
 
