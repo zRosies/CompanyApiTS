@@ -1,6 +1,6 @@
 import express from 'express';
 import swaggerUI from 'swagger-ui-express';
-import swaggerDoc from '../testAuth.json';
+import swaggerDoc from '../swagger.json';
 
 
 const router: any = express.Router()
