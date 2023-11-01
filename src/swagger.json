@@ -5,6 +5,15 @@
     "title": "Company API",
     "description": "API for managing the Company's employees and their user names! To have access full access you must log in first"
   },
+  "securityDefinitions": {
+    "oAuthNoScopes": {
+      "type": "oauth2",
+      "description": "Authenticate in Github for full access",
+      "flow": "oAuthNoScopes",
+      "authorizationUrl": "/oauth",
+      "tokenUrl": "/token"
+    }
+  },
   "paths": {
     "/employee": {
       "get": {
