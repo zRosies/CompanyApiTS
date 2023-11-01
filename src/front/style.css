@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 body {
   /* max-width: 100%; */
   /* width: 100%; */
@@ -11,12 +13,21 @@ main {
 }
 
 h3 {
-  background: linear-gradient(to right, #504dd3 20%, #2e2d65 100%);
+  background: linear-gradient(
+    to right,
+    #fc0000 20%,
+    #2ebb3c 40%,
+    #f5ce4c 60%,
+    #2eb6bb 80%,
+    #2c17ec 100%
+  );
   padding: 20px;
   color: #fff;
   border-radius: 20px;
   font-size: 1.1rem;
   font-weight: 900;
+  font-family: "Press Start 2P";
+  text-shadow: 2px 2px 10px #000;
 }
 
 .painel {
